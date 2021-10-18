@@ -8,7 +8,8 @@ Sum of Two Values
 #include <map>
 using namespace std;
 
-int main(){
+int main()
+{
     /*
     EJEMPLO:
     Input:
@@ -18,24 +19,31 @@ int main(){
     Output:
     2 4
     */
+
     vector<int> numeros;
-	map<int, int> pos;
-	int tam, entrada, valor, num_esta;
-    cin>>tam>>entrada;
-	for (int i=0; i<tam; i++)
+    map<int, int> pos;
+    int tam, entrada, valor, num_esta;
+    cin >> tam >> entrada;
+
+    for (int i = 0; i < tam; i++)
     {
-        cin>>valor;
-		numeros.push_back(valor);
-        num_esta=entrada-numeros[i];
-		if(pos.count(num_esta)) //count para comprobar si existe en valor en la key
+        // RECIBO LO VALORES PARA EL VECTOR
+        cin >> valor;
+        numeros.push_back(valor);
+        num_esta = entrada - numeros[i];
+
+	// COMPROBAR SI EXISTEN 2 NUMEROS SUMADOS IGUAL A LA ENTRADA
+        if (pos.count(num_esta)) 	// count para comprobar si existe en valor en la key
         {
-            cout<<pos[num_esta]<<" "<<i+1<<endl;
-			return 0;
-		}
-        else{
-            pos.insert(make_pair(numeros[i],i+1));
+            cout << pos[num_esta] << " " << i + 1 << endl;
+            return 0;
         }
-	}
-	cout<<"IMPOSSIBLE"<<endl;
+        else
+        {
+            pos.insert(make_pair(numeros[i], i + 1));	//si no esta que lo inserte
+        }
+    }
+    cout << "IMPOSSIBLE" << endl;
+
     return 0;
 }
